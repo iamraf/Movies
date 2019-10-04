@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/nowPlayingMovies">
+
+    <fragment
+        android:id="@+id/topMovies"
+        android:name="com.github.h01d.movies.ui.movies.MoviesFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_movies">
+        <argument
+            android:name="title"
+            android:defaultValue="Top Rated Movies"
+            app:argType="string" />
+        <argument
+            android:name="path"
+            android:defaultValue="top_rated"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_topMovies_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nowPlayingMovies"
+        android:name="com.github.h01d.movies.ui.movies.MoviesFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_movies">
+        <argument
+            android:name="title"
+            android:defaultValue="Now Playing Movies"
+            app:argType="string" />
+        <argument
+            android:name="path"
+            android:defaultValue="now_playing"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_nowPlayingMovies_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/popularMovies"
+        android:name="com.github.h01d.movies.ui.movies.MoviesFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_movies">
+        <argument
+            android:name="title"
+            android:defaultValue="Popular Movies"
+            app:argType="string" />
+        <argument
+            android:name="path"
+            android:defaultValue="popular"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_popularMovies_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.github.h01d.movies.ui.details.DetailsFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="movie"
+            app:argType="com.github.h01d.movies.data.model.Movie" />
+        <argument
+            android:name="title"
+            android:defaultValue="Movie"
+            app:argType="string" />
+    </fragment>
+</navigation>

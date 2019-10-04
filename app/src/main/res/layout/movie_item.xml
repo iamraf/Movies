@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.github.h01d.movies.data.model.Movie" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/i_movie_picture"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                app:poster="@{movie.posterPath}" />
+
+            <TextView
+                android:id="@+id/i_movie_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_toEndOf="@id/i_movie_picture"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-light"
+                android:maxLines="1"
+                android:text="@{movie.title}"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/i_movie_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/i_movie_title"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="4dp"
+                android:layout_toEndOf="@id/i_movie_picture"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-light"
+                android:maxLines="1"
+                android:text="@{movie.releaseDate}"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/i_movie_overview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_above="@id/i_movie_more"
+                android:layout_below="@id/i_movie_date"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="4dp"
+                android:layout_toEndOf="@id/i_movie_picture"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-light"
+                android:maxLines="4"
+                android:text="@{movie.overview}" />
+
+            <TextView
+                android:id="@+id/i_movie_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@id/i_movie_picture"
+                android:fontFamily="sans-serif-light"
+                android:text="Click to read more..."
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

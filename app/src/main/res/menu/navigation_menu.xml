@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nowPlayingMovies"
+        android:icon="@drawable/ic_play_arrow_black_24dp"
+        android:title="Now Playing" />
+    <item
+        android:id="@+id/popularMovies"
+        android:icon="@drawable/ic_whatshot_black_24dp"
+        android:title="Popular" />
+
+    <item
+        android:id="@+id/topMovies"
+        android:icon="@drawable/ic_top_black_24dp"
+        android:title="Top Rated" />
+</menu>
