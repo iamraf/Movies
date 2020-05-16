@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Raf.
+ * Copyright (C) 2019-2020 Raf.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,11 +31,6 @@ import com.github.h01d.movies.databinding.FragmentDetailsBinding;
 
 public class DetailsFragment extends Fragment
 {
-    public DetailsFragment()
-    {
-
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -45,5 +40,4 @@ public class DetailsFragment extends Fragment
 
         return mDataBinding.getRoot();
     }
-
 }

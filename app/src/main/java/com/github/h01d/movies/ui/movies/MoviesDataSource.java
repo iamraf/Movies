@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Raf.
+ * Copyright (C) 2019-2020 Raf.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -117,7 +117,7 @@ public class MoviesDataSource extends PageKeyedDataSource<Long, Movie>
     @Override
     public void loadBefore(@NonNull LoadParams<Long> params, @NonNull LoadCallback<Long, Movie> callback)
     {
-
+        //Do nothing
     }
 
     @Override

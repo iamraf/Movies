@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Raf.
+ * Copyright (C) 2019-2020 Raf.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,11 +40,6 @@ public class MoviesFragment extends Fragment implements MoviesAdapter.MovieAdapt
     private MoviesViewModel mViewModel;
 
     private MoviesAdapter mAdapter;
-
-    public MoviesFragment()
-    {
-
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

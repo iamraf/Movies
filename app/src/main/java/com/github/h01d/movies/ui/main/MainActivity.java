@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Raf.
+ * Copyright (C) 2019-2020 Raf.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package com.github.h01d.movies.ui.main;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -31,27 +31,25 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.github.h01d.movies.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.github.h01d.movies.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity
 {
+    private ActivityMainBinding mDataBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        mDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
-        final BottomNavigationView bottomNavigationView = findViewById(R.id.a_main_bottom);
-        final Toolbar toolbar = findViewById(R.id.a_main_toolbar);
-
-        toolbar.setTitle("Now Playing Movies");
-        toolbar.setBackgroundColor(Color.WHITE);
-        setSupportActionBar(toolbar);
+        mDataBinding.aMainToolbar.setTitle("Now Playing Movies");
+        mDataBinding.aMainToolbar.setBackgroundColor(Color.WHITE);
+        setSupportActionBar(mDataBinding.aMainToolbar);
 
         NavController navController = Navigation.findNavController(this, R.id.a_main_host);
-        NavigationUI.setupWithNavController(toolbar, navController);
         navController.addOnDestinationChangedListener((controller, destination, arguments) ->
         {
             switch(destination.getId())
@@ -59,16 +57,17 @@ public class MainActivity extends AppCompatActivity
                 case R.id.nowPlayingMovies:
                 case R.id.popularMovies:
                 case R.id.topMovies:
-                    bottomNavigationView.setVisibility(View.VISIBLE);
+                    mDataBinding.aMainBottom.setVisibility(View.VISIBLE);
                     break;
                 case R.id.detailsFragment:
-                    bottomNavigationView.setVisibility(View.GONE);
+                    mDataBinding.aMainBottom.setVisibility(View.GONE);
                     break;
             }
         });
 
-        NavigationUI.setupWithNavController(toolbar, navController, new AppBarConfiguration.Builder(R.id.nowPlayingMovies, R.id.popularMovies, R.id.topMovies).build());
-        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+        NavigationUI.setupWithNavController(mDataBinding.aMainToolbar, navController);
+        NavigationUI.setupWithNavController(mDataBinding.aMainToolbar, navController, new AppBarConfiguration.Builder(R.id.nowPlayingMovies, R.id.popularMovies, R.id.topMovies).build());
+        NavigationUI.setupWithNavController(mDataBinding.aMainBottom, navController);
     }
 
     @Override
